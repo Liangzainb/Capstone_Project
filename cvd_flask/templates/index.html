@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css')}}">
+    <!---<meta http-equiv="X-UA-Compatible" content="ie=edge" />-->
+    <title>Diabetes Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='styles/parallax.min.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+
+
+</head>
+<!--
+<nav>
+  <ul>
+  <li><a href="#home">Home</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
+</nav>
+-->
+<div class="parallax-window" data-parallax="scroll" data-image-src="{{url_for('static', filename='images/cure3.jpg')}}">
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li style="float:right"><a class="active" href="about">About</a></li>
+    </ul>
+</div>
+
+<style>
+
+
+    .parallax-window {
+        min-height: 500px;
+        background: transparent;
+    }
+</style>
+<!--  <div class="containerforh">
+    <br>
+    <div class="quotemain">"Prevention is better Than Cure"</div>
+
+</div>
+-->
+
+<body>
+
+    <div class="explaination">
+        <h2 class="abouth3"> About This Platform</h2>
+        <p class="info">
+            This platform is designed to predict Diabetes. The data
+            being used to aid the algorithm has been taken from the UCI Diabetes data set. The intended
+            audience for this application are doctors who understand the input values and
+            have the provided data from patients. For more information
+            on the data attributes associated with our calculation, <a class="colorthisa"
+                                                                       href="https://archive-beta.ics.uci.edu/dataset/529/early+stage+diabetes+risk+prediction+dataset">Click Here.</a>
+        </p>
+    </div>
+
+
+    <h3>Diabetes Prediction Platform</h3>
+
+
+    <!-- Form -->
+    <div class="complete_form">
+        <form action="/send" method="POST">
+
+            <div class="container1">
+                <label for="agelb">Age: </label>        <!--1-->
+                <input type="number" required
+                       placeholder="Enter Your Age..."
+                       name="age" />
+
+                <label for="genderlb">Gender: </label>        <!--2-->
+                <select name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                <label for="polyurialb">Do you have the symptoms of polyuria? </label>        <!--3-->
+                <select name="polyuria" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="polydipsialb">Do you have the symptoms of polydipsia? </label>        <!--4-->
+                <select name="polydipsia" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="suddenweightlosslb">Do you have the symptoms of sudden weight loss? </label>        <!--5-->
+                <select name="suddenweightloss" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="weaknesslb">Do you have the symptoms of weakness? </label>        <!--6-->
+                <select name="weakness" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="polyphagialb">Do you have the symptoms of polyphagia? </label>        <!--7-->
+                <select name="polyphagia" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="genitalthrushlb">Do you have the symptoms of genital thrush? </label>        <!--8-->
+                <select name="genitalthrush" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+            </div>
+
+            <div class="container2">
+                <label for="visualblurringlb">Do you have the symptoms of visual blurring? </label>        <!--9-->
+                <select name="visualblurring" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="itchinglb">Do you have the symptoms of itching? </label>        <!--10-->
+                <select name="itching" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="irritabilitylb">Do you have the symptoms of irritability? </label>        <!--11-->
+                <select name="irritability" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="delayedhealinglb">Do you have the symptoms of delayed healing? </label>        <!--12-->
+                <select name="delayedhealing" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="partialparesislb">Do you have the symptoms of partial paresis? </label>        <!--13-->
+                <select name="partialparesis" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="musclestiffnesslb">Do you have the symptoms of muscle stiffness? </label>        <!--14-->
+                <select name="musclestiffness" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="alopecialb">Do you have the symptoms of alopecia? </label>        <!--15-->
+                <select name="alopecia" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="obesitylb">Do you have the symptoms of obesity? </label>        <!--16-->
+                <select name="obesity" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <br />
+                <br />
+                <input type="submit" value="Predict" id="calc_btn" />        <!--17-->
+                <br />
+            </div>
+            <div class="alert">
+                {{ predict }}
+            </div>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+<footer>
+    <p>© 2023 - University of Canberra ST1_Capstone - Project. All Rights Reserved.
+</footer>
+</html>
